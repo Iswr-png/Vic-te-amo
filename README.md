@@ -115,13 +115,10 @@
     #closing-message {
       display: none;
       opacity: 0;
-      color: #000000;
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 20px;
       transition: opacity 3s ease-in-out;
+      z-index: 12;
       position: relative;
-      z-index: 20;
+      color: #000000;
     }
 
     #light-overlay {
@@ -183,26 +180,25 @@
       document.getElementById("main-content").style.display = "none";
       document.getElementById("response").style.display = "block";
       createHearts();
-
-      // Inicia a luz após alguns segundos
+      
       setTimeout(() => {
         document.getElementById("light-overlay").style.opacity = "1";
       }, 7000);
+      
+      setTimeout(showClosingMessage, 15000);
+    }
 
-      // Mostra a mensagem final e fecha o site
+    function showClosingMessage() {
+      document.getElementById("response").style.display = "none";
+      document.body.style.backgroundColor = "#ffffff";
+      const message = document.getElementById("closing-message");
+      message.style.display = "block";
       setTimeout(() => {
-        document.getElementById("response").style.display = "none";
-        document.body.style.backgroundColor = "#ffffff";
-        const message = document.getElementById("closing-message");
-        message.style.display = "block";
-        setTimeout(() => {
-          message.style.opacity = "1";
-        }, 300);
-
-        setTimeout(() => {
-          window.close();
-        }, 7000);
-      }, 15000);
+        message.style.opacity = "1";
+      }, 500);
+      setTimeout(() => {
+        window.close();
+      }, 10000);
     }
 
     function createHearts() {
