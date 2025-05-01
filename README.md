@@ -159,7 +159,7 @@
     <p>Desde que você chegou, parece que a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Você tem um brilho que é só seu. Uma luz tão única que ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em você.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre que foi feito pra te amar.</p>
-    <p>Você é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com você que eu quero dividir os silêncios, os sonhos, os medos e as vitórias.</p>
+    <p>Você é o meu pensamento favorito, o meu lugar seguro, minha paz e minha alegria.</p>
     <p>Quero te abraçar forte quando o mundo pesar, quero te lembrar todos os dias o quanto você é linda por dentro e por fora.</p>
     <p>Porque eu te amo. E é muito.</p>
     <p class="final">Vic, você aceita namorar comigo?</p>
