@@ -108,12 +108,11 @@
       animation: fadeIn 1.5s ease;
     }
 
-    /* Corações flutuantes */
-    .heart {
+    /* Corações e flores flutuantes */
+    .floating {
       position: fixed;
-      width: 20px;
-      height: 20px;
-      background: url('https://i.imgur.com/wO0YQfT.png') no-repeat center center;
+      width: 30px;
+      height: 30px;
       background-size: contain;
       animation: floatUp 6s linear infinite;
       z-index: 0;
@@ -128,16 +127,23 @@
 <body>
   <div class="overlay"></div>
 
-  <!-- Corações flutuando -->
+  <!-- Corações e flores flutuando -->
   <script>
-    for (let i = 0; i < 15; i++) {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDelay = Math.random() * 5 + "s";
-      heart.style.width = "20px";
-      heart.style.height = "20px";
-      document.body.appendChild(heart);
+    const elements = 20;
+    const images = [
+      "https://i.imgur.com/wO0YQfT.png", // Coração
+      "https://i.imgur.com/5LVf3gQ.png"  // Flor
+    ];
+
+    for (let i = 0; i < elements; i++) {
+      const item = document.createElement("div");
+      item.classList.add("floating");
+      item.style.left = Math.random() * 100 + "vw";
+      item.style.animationDelay = Math.random() * 5 + "s";
+      item.style.width = "30px";
+      item.style.height = "30px";
+      item.style.backgroundImage = `url('${images[Math.floor(Math.random() * images.length)]}')`;
+      document.body.appendChild(item);
     }
   </script>
 
@@ -154,9 +160,7 @@
     <p>Você tem um brilho que é só seu. Uma luz tão única que ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em você.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre que foi feito pra te amar.</p>
     <p>Você é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com você que eu quero dividir os silêncios, os sonhos, os medos e as vitórias.</p>
-    <p>Quero te abraçar forte quando o mundo pesar, quero te lembrar todos os dias o quanto você é linda por dentro e por fora. Quero cuidar de você como quem cuida de algo raro e precioso — porque é isso que você é pra mim.</p>
-    <p>Quero te fazer sorrir nos dias bons e te segurar firme nos dias difíceis. Quero ouvir suas inseguranças e transformá-las em carinho, te mostrar com gestos e palavras que você nunca está sozinha.</p>
-    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração. Inteiro. Sem reservas.</p>
+    <p>Quero te abraçar forte quando o mundo pesar, quero te lembrar todos os dias o quanto você é linda por dentro e por fora.</p>
     <p>Porque eu te amo. E é muito.</p>
     <p class="final">Vic, você aceita namorar comigo?</p>
     <div class="buttons">
@@ -167,7 +171,7 @@
 
   <div class="container" id="response">
     <img id="heart-gif" src="https://i.imgur.com/hQIw3dJ.gif" alt="Coração fofo animado">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por você só me faz querer viver momentos lindos ao seu lado.</div>
+    <div class="message-final">Meu coração tá transbordando de felicidade! 💖</div>
   </div>
 
   <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
