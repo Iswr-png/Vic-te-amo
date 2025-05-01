@@ -158,6 +158,9 @@
   <div class="floating-objects">
     <div class="floating-heart" style="top: 20%; left: 10%; animation-duration: 8s;"></div>
     <div class="floating-heart" style="top: 50%; left: 30%; animation-duration: 12s;"></div>
+    <div class="floating-heart" style="top: 70%; left: 70%; animation-duration: 14s;"></div>
+    <div class="floating-heart" style="top: 30%; left: 50%; animation-duration: 16s;"></div>
+    <div class="floating-heart" style="top: 60%; left: 80%; animation-duration: 18s;"></div>
     <div class="floating-flower" style="top: 10%; left: 50%; animation-duration: 10s;"></div>
     <div class="floating-flower" style="top: 60%; left: 70%; animation-duration: 14s;"></div>
   </div>
