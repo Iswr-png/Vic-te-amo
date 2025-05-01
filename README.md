@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pra você, Vic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Segoe+UI&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #ffe6f0, #ffe0e9);
+      background: url('1000304699.png') no-repeat center center fixed;
+      background-size: cover;
       color: #4a2c2a;
       display: flex;
       flex-direction: column;
@@ -20,46 +21,44 @@
       position: relative;
     }
 
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 0;
+    }
+
     .container {
       padding: 30px 20px;
       max-width: 700px;
       animation: fadeIn 1s ease;
-      z-index: 2;
+      z-index: 1;
+      position: relative;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 30px;
+      font-size: 34px;
       color: #d6336c;
       margin-top: 100px;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Dancing Script', cursive;
       animation: bounce 1.5s infinite alternate;
     }
 
     @keyframes bounce {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-10px);
-      }
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
     }
 
     p {
       font-size: 18px;
       line-height: 1.7;
       margin-bottom: 20px;
-      font-family: 'Great Vibes', cursive;
     }
 
     .final {
@@ -67,7 +66,6 @@
       font-size: 22px;
       color: #b20043;
       margin-top: 30px;
-      font-family: 'Great Vibes', cursive;
     }
 
     .buttons, .open-btn {
@@ -91,7 +89,7 @@
     }
 
     #heart-gif {
-      width: 120px;
+      width: 150px;
       height: auto;
       margin: 30px auto 0;
       display: block;
@@ -110,60 +108,38 @@
       animation: fadeIn 1.5s ease;
     }
 
-    /* Animação de corações e flores flutuando no fundo */
-    .floating-objects {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .floating-heart,
-    .floating-flower {
-      position: absolute;
-      animation: float 10s linear infinite;
-    }
-
-    .floating-heart {
-      width: 50px;
-      height: 50px;
-      background: url('https://media.tenor.com/images/4c39b8a3000535bcdfe3fc327c7fae4d/tenor.gif') no-repeat center;
+    /* Corações flutuantes */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/wO0YQfT.png') no-repeat center center;
       background-size: contain;
+      animation: floatUp 6s linear infinite;
+      z-index: 0;
     }
 
-    .floating-flower {
-      width: 40px;
-      height: 40px;
-      background: url('https://media.tenor.com/images/d6818cc33ad364fe3500d1d050f01e4b/tenor.gif') no-repeat center;
-      background-size: contain;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) translateX(0);
-      }
-      50% {
-        transform: translateY(-100px) translateX(50px);
-      }
-      100% {
-        transform: translateY(0) translateX(0);
-      }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div class="floating-objects">
-    <div class="floating-heart" style="top: 20%; left: 10%; animation-duration: 8s;"></div>
-    <div class="floating-heart" style="top: 50%; left: 30%; animation-duration: 12s;"></div>
-    <div class="floating-heart" style="top: 70%; left: 70%; animation-duration: 14s;"></div>
-    <div class="floating-heart" style="top: 30%; left: 50%; animation-duration: 16s;"></div>
-    <div class="floating-heart" style="top: 60%; left: 80%; animation-duration: 18s;"></div>
-    <div class="floating-flower" style="top: 10%; left: 50%; animation-duration: 10s;"></div>
-    <div class="floating-flower" style="top: 60%; left: 70%; animation-duration: 14s;"></div>
-  </div>
+  <div class="overlay"></div>
+
+  <!-- Corações flutuando -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      heart.style.width = "20px";
+      heart.style.height = "20px";
+      document.body.appendChild(heart);
+    }
+  </script>
 
   <div class="container" id="intro">
     <h1>Abre isso com carinho...</h1>
@@ -190,8 +166,8 @@
   </div>
 
   <div class="container" id="response">
-    <img id="heart-gif" src="https://media.tenor.com/HU8f1uVWHTIAAAAi/hug-heart.gif" alt="Coração fofo animado">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por você só me faz querer viver momentos lindos ao seu lado. 💖</div>
+    <img id="heart-gif" src="https://i.imgur.com/hQIw3dJ.gif" alt="Coração fofo animado">
+    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por você só me faz querer viver momentos lindos ao seu lado.</div>
   </div>
 
   <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
@@ -199,8 +175,6 @@
   <script>
     window.onload = function() {
       document.getElementById("intro").style.display = "block";
-      document.getElementById("main-content").style.display = "none";
-      document.getElementById("response").style.display = "none";
     }
 
     function openHeart() {
