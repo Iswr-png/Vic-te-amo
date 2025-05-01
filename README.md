@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pra você, Vic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -16,35 +17,49 @@
       align-items: center;
       text-align: center;
       overflow-x: hidden;
+      position: relative;
     }
 
     .container {
       padding: 30px 20px;
       max-width: 700px;
       animation: fadeIn 1s ease;
+      z-index: 2;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
       font-size: 30px;
       color: #d6336c;
       margin-top: 100px;
+      font-family: 'Great Vibes', cursive;
       animation: bounce 1.5s infinite alternate;
     }
 
     @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-10px); }
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-10px);
+      }
     }
 
     p {
       font-size: 18px;
       line-height: 1.7;
       margin-bottom: 20px;
+      font-family: 'Great Vibes', cursive;
     }
 
     .final {
@@ -52,6 +67,7 @@
       font-size: 22px;
       color: #b20043;
       margin-top: 30px;
+      font-family: 'Great Vibes', cursive;
     }
 
     .buttons, .open-btn {
@@ -93,9 +109,59 @@
       margin-top: 20px;
       animation: fadeIn 1.5s ease;
     }
+
+    /* Animação de corações e flores flutuando no fundo */
+    .floating-objects {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-heart,
+    .floating-flower {
+      position: absolute;
+      animation: float 10s linear infinite;
+    }
+
+    .floating-heart {
+      width: 50px;
+      height: 50px;
+      background: url('https://media.tenor.com/images/4c39b8a3000535bcdfe3fc327c7fae4d/tenor.gif') no-repeat center;
+      background-size: contain;
+    }
+
+    .floating-flower {
+      width: 40px;
+      height: 40px;
+      background: url('https://media.tenor.com/images/d6818cc33ad364fe3500d1d050f01e4b/tenor.gif') no-repeat center;
+      background-size: contain;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-100px) translateX(50px);
+      }
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="floating-objects">
+    <div class="floating-heart" style="top: 20%; left: 10%; animation-duration: 8s;"></div>
+    <div class="floating-heart" style="top: 50%; left: 30%; animation-duration: 12s;"></div>
+    <div class="floating-flower" style="top: 10%; left: 50%; animation-duration: 10s;"></div>
+    <div class="floating-flower" style="top: 60%; left: 70%; animation-duration: 14s;"></div>
+  </div>
+
   <div class="container" id="intro">
     <h1>Abre isso com carinho...</h1>
     <div class="open-btn">
