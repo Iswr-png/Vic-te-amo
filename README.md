@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pra vc, Vic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     body {
       margin: 0;
@@ -12,7 +12,7 @@
       font-family: 'Quicksand', sans-serif;
       background: url('https://i.postimg.cc/02yn4XPg/Selfie-no-estilo-unic-rnio.png') no-repeat center center fixed;
       background-size: cover;
-      color: #4a2c2a;
+      color: #000000;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -26,14 +26,12 @@
       padding: 30px 20px;
       max-width: 700px;
       animation: fadeIn 1s ease;
-      background: none;
       border-radius: 16px;
       margin-top: 40px;
     }
 
-    #main-content {
+    #main-content, #response, #closing-message {
       display: none;
-      color: #000000;
     }
 
     @keyframes fadeIn {
@@ -69,7 +67,6 @@
     .final {
       font-weight: bold;
       font-size: 22px;
-      color: #000000;
       margin-top: 30px;
     }
 
@@ -91,10 +88,6 @@
 
     button:hover {
       background-color: #ff77a9;
-    }
-
-    #intro, #response, #closing-message {
-      display: none;
     }
 
     .message-final {
@@ -120,7 +113,6 @@
       opacity: 0;
       transition: opacity 3s ease-in-out;
     }
-
   </style>
 </head>
 <body>
@@ -131,14 +123,14 @@
     </div>
   </div>
 
-  <div class="container" id="main-content" style="display:none;">
+  <div class="container" id="main-content">
     <p>Vic,</p>
     <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
     <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
     <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
-    
+
     <p class="final">Vic, vc aceita namorar comigo?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
@@ -166,11 +158,11 @@
       document.getElementById("main-content").style.display = "none";
       document.getElementById("response").style.display = "block";
       createHearts();
-      setTimeout(showClosingMessage, 5000);
+      setTimeout(showClosingMessage, 10000);
     }
 
     function createHearts() {
-      setInterval(() => {
+      const interval = setInterval(() => {
         let heart = document.createElement("div");
         heart.classList.add("heart");
         heart.innerHTML = "❤️";
@@ -180,16 +172,21 @@
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
       }, 300);
+
+      setTimeout(() => clearInterval(interval), 10000);
     }
 
     function showClosingMessage() {
-      document.getElementById("closing-message").style.opacity = "1";
+      document.getElementById("response").style.display = "none";
+      document.body.style.backgroundColor = "#000000";
+      const message = document.getElementById("closing-message");
+      message.style.display = "block";
       setTimeout(() => {
-        document.body.style.backgroundColor = "#ffffff";
-      }, 3000);
+        message.style.opacity = "1";
+      }, 500);
       setTimeout(() => {
         window.close();
-      }, 10000); // Fechar após 10 segundos
+      }, 10000);
     }
   </script>
 </body>
