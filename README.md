@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surpresa para Vic</title>
     <style>
-        /* Manter o estilo básico do seu site */
+        /* Estilo geral */
         body {
             margin: 0;
             padding: 0;
@@ -24,80 +24,55 @@
             text-align: center;
         }
 
-        /* Texto principal em preto */
+        /* Texto Principal */
         #texto-principal {
             color: black;
             font-size: 40px;
             font-weight: bold;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
+            opacity: 1;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Mensagem de alegria (com brilho e pulsação) */
+        /* Mensagem de Alegria */
         #mensagem-alegria {
-            display: none;
             font-size: 50px;
             font-weight: bold;
             color: #ff66cc;
             text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
+            opacity: 0;
             animation: pulsar 1.5s ease-in-out infinite, brilho 2s ease-in-out infinite;
+            display: none;
         }
 
         @keyframes pulsar {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
         @keyframes brilho {
-            0% {
-                text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
-            }
-            50% {
-                text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff66cc, 0 0 60px #ff66cc;
-            }
-            100% {
-                text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
-            }
+            0% { text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc; }
+            50% { text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff66cc, 0 0 60px #ff66cc; }
+            100% { text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc; }
         }
 
-        /* Corações subindo pela tela */
+        /* Corações subindo */
         #coracoes {
             position: absolute;
             bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
+            font-size: 30px;
             animation: subir 5s infinite;
+            display: none;
         }
 
         @keyframes subir {
-            0% {
-                bottom: -100px;
-                opacity: 0;
-            }
-            50% {
-                bottom: 40%;
-                opacity: 1;
-            }
-            100% {
-                bottom: 100%;
-                opacity: 0;
-            }
+            0% { bottom: -100px; opacity: 0; }
+            50% { bottom: 40%; opacity: 1; }
+            100% { bottom: 100%; opacity: 0; }
         }
 
-        /* Luz que toma conta da tela */
+        /* Luz que cobre a tela */
         #luz {
             position: absolute;
             top: 0;
@@ -107,47 +82,34 @@
             background: rgba(255, 255, 255, 0.8);
             opacity: 0;
             animation: luz 5s forwards;
+            display: none;
         }
 
         @keyframes luz {
-            0% {
-                opacity: 0;
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 0; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
-        /* Frase final com fade-in */
+        /* Frase final */
         #frase-final {
-            display: none;
             font-size: 50px;
             font-weight: bold;
             text-align: center;
             opacity: 0;
+            display: none;
             animation: fadeInFinal 2s ease-in-out forwards;
         }
 
         @keyframes fadeInFinal {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Fechar o site */
         @keyframes fecharSite {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         #site.fechar {
@@ -157,9 +119,8 @@
 </head>
 <body>
     <div id="site">
-        <!-- Texto principal -->
         <div id="texto-principal">Uma surpresa para Vic!</div>
-        
+
         <!-- Mensagem de alegria -->
         <div id="mensagem-alegria">Você é incrível!</div>
 
