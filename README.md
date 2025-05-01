@@ -1,193 +1,201 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pra vc, Vic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: url('https://i.postimg.cc/02yn4XPg/Selfie-no-estilo-unic-rnio.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #000000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      overflow-x: hidden;
-      position: relative;
-      transition: background-color 5s ease-in-out;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa para Vic</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #fff;
+            font-family: Arial, sans-serif;
+        }
 
-    .container {
-      padding: 30px 20px;
-      max-width: 700px;
-      animation: fadeIn 1s ease;
-      border-radius: 16px;
-      margin-top: 40px;
-    }
+        #site {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
 
-    #main-content, #response, #closing-message {
-      display: none;
-    }
+        /* Texto principal */
+        #texto-principal {
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+        /* Mensagem de Alegria com brilho e pulsação */
+        #mensagem-alegria {
+            display: none;
+            font-size: 50px;
+            font-weight: bold;
+            color: #ff66cc;
+            text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
+            animation: pulsar 1.5s ease-in-out infinite, brilho 2s ease-in-out infinite;
+        }
 
-    @keyframes floatHeart {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-300px); opacity: 0; }
-    }
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
 
-    h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 32px;
-      color: #d6336c;
-      margin-top: 100px;
-      animation: bounce 1.5s infinite alternate;
-    }
+        @keyframes brilho {
+            0% {
+                text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff66cc, 0 0 60px #ff66cc;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc, 0 0 30px #ff66cc;
+            }
+        }
 
-    p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
+        /* Corações subindo pela tela */
+        #coracoes {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: subir 5s infinite;
+        }
 
-    .final {
-      font-weight: bold;
-      font-size: 22px;
-      margin-top: 30px;
-    }
+        @keyframes subir {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+            }
+            50% {
+                bottom: 40%;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
 
-    .buttons {
-      margin-top: 30px;
-    }
+        /* Luz que toma conta da tela */
+        #luz {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            animation: luz 5s forwards;
+        }
 
-    button {
-      margin: 10px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #ff99bb;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+        @keyframes luz {
+            0% {
+                opacity: 0;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
 
-    button:hover {
-      background-color: #ff77a9;
-    }
+        /* Frase final com fade-in */
+        #frase-final {
+            display: none;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInFinal 2s ease-in-out forwards;
+        }
 
-    .message-final {
-      font-size: 24px;
-      color: #000000;
-      font-weight: bold;
-      margin-top: 20px;
-      animation: pulse 1.5s infinite ease-in-out;
-    }
+        @keyframes fadeInFinal {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-    .heart {
-      position: absolute;
-      font-size: 24px;
-      color: red;
-      animation: floatHeart 4s linear infinite;
-    }
+        /* Fechar o site */
+        @keyframes fecharSite {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
 
-    #closing-message {
-      font-size: 24px;
-      color: #ffffff;
-      font-weight: bold;
-      margin-top: 20px;
-      opacity: 0;
-      transition: opacity 3s ease-in-out;
-    }
-  </style>
+        #site.fechar {
+            animation: fecharSite 3s forwards;
+        }
+    </style>
 </head>
 <body>
-  <div class="container" id="intro">
-    <h1>Abre isso com carinho...</h1>
-    <div class="open-btn">
-      <button onclick="openHeart()">Abrir o coração de Gidelson</button>
+    <div id="site">
+        <div id="texto-principal">Uma surpresa para Vic!</div>
+        <div id="mensagem-alegria">Você é incrível!</div>
+        <div id="coracoes">❤️❤️❤️</div>
+        <div id="luz"></div>
+        <div id="frase-final">Te amo, Vic! ❤️</div>
     </div>
-  </div>
 
-  <div class="container" id="main-content">
-    <p>Vic,</p>
-    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
-    <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
-    <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
-    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
-    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
+    <script>
+        window.onload = function() {
+            // Mostrar o texto principal
+            setTimeout(() => {
+                document.getElementById("texto-principal").style.opacity = 1;
+            }, 500);
 
-    <p class="final">Vic, vc aceita namorar comigo?</p>
-    <div class="buttons">
-      <button onclick="showResponse()">Sim, eu aceito!</button>
-      <button onclick="showResponse()">Claro, amor!</button>
-    </div>
-  </div>
+            // Mostrar a mensagem de alegria
+            setTimeout(() => {
+                document.getElementById("mensagem-alegria").style.display = 'block';
+            }, 2000); // Após o fade-in do texto principal
 
-  <div class="container" id="response">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado. 💖</div>
-  </div>
+            // Mostrar os corações
+            setTimeout(() => {
+                document.getElementById("coracoes").style.display = 'block';
+            }, 2000); // Após o texto principal e mensagem de alegria
 
-  <div class="container" id="closing-message">
-    <p>A mágica do pedido chegou ao fim, mas nossa história mágica acaba de começar. ✨💖</p>
-  </div>
+            // Exibir luz
+            setTimeout(() => {
+                document.getElementById("luz").style.display = 'block';
+            }, 4000); // Após a animação da mensagem de alegria e corações
 
-  <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
+            // Exibir a frase final
+            setTimeout(() => {
+                document.getElementById("frase-final").style.display = 'block';
+            }, 8000); // Após a luz desaparecer
 
-  <script>
-    function openHeart() {
-      document.getElementById("intro").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-    }
-
-    function showResponse() {
-      document.getElementById("main-content").style.display = "none";
-      document.getElementById("response").style.display = "block";
-      createHearts();
-      setTimeout(showClosingMessage, 10000);
-    }
-
-    function createHearts() {
-      const interval = setInterval(() => {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = window.innerHeight + "px";
-        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-      }, 300);
-
-      setTimeout(() => clearInterval(interval), 10000);
-    }
-
-    function showClosingMessage() {
-      document.getElementById("response").style.display = "none";
-      document.body.style.backgroundColor = "#000000";
-      const message = document.getElementById("closing-message");
-      message.style.display = "block";
-      setTimeout(() => {
-        message.style.opacity = "1";
-      }, 500);
-      setTimeout(() => {
-        window.close();
-      }, 10000);
-    }
-  </script>
+            // Fechar o site
+            setTimeout(() => {
+                document.getElementById("site").classList.add("fechar");
+            }, 12000); // Após a frase final
+        };
+    </script>
 </body>
 </html>
