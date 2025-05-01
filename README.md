@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pra vc, Vic</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -12,13 +12,14 @@
       font-family: 'Quicksand', sans-serif;
       background: url('https://i.postimg.cc/02yn4XPg/Selfie-no-estilo-unic-rnio.png') no-repeat center center fixed;
       background-size: cover;
-      color: #000; /* Letras pretas */
+      color: #4a2c2a;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       overflow-x: hidden;
       position: relative;
+      transition: background-color 5s ease-in-out;
     }
 
     .container {
@@ -30,8 +31,9 @@
       margin-top: 40px;
     }
 
-    #main-content, #response, #closing-message {
+    #main-content {
       display: none;
+      color: #000000;
     }
 
     @keyframes fadeIn {
@@ -67,6 +69,7 @@
     .final {
       font-weight: bold;
       font-size: 22px;
+      color: #000000;
       margin-top: 30px;
     }
 
@@ -90,8 +93,13 @@
       background-color: #ff77a9;
     }
 
+    #intro, #response, #closing-message {
+      display: none;
+    }
+
     .message-final {
       font-size: 24px;
+      color: #000000;
       font-weight: bold;
       margin-top: 20px;
       animation: pulse 1.5s infinite ease-in-out;
@@ -112,6 +120,7 @@
       opacity: 0;
       transition: opacity 3s ease-in-out;
     }
+
   </style>
 </head>
 <body>
@@ -122,7 +131,7 @@
     </div>
   </div>
 
-  <div class="container" id="main-content">
+  <div class="container" id="main-content" style="display:none;">
     <p>Vic,</p>
     <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
@@ -174,15 +183,13 @@
     }
 
     function showClosingMessage() {
-      document.getElementById("response").style.display = "none";
       document.getElementById("closing-message").style.opacity = "1";
-      document.getElementById("closing-message").style.display = "block";
       setTimeout(() => {
         document.body.style.backgroundColor = "#ffffff";
       }, 3000);
       setTimeout(() => {
         window.close();
-      }, 10000); // fecha em 10 segundos
+      }, 10000); // Fechar após 10 segundos
     }
   </script>
 </body>
