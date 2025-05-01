@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surpresa para Vic</title>
     <style>
-        /* Estilos gerais */
+        /* Manter o estilo básico do seu site */
         body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
             background: #fff;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
         #site {
@@ -24,7 +24,7 @@
             text-align: center;
         }
 
-        /* Texto principal */
+        /* Texto principal em preto */
         #texto-principal {
             color: black;
             font-size: 40px;
@@ -39,7 +39,7 @@
             }
         }
 
-        /* Mensagem de Alegria com brilho e pulsação */
+        /* Mensagem de alegria (com brilho e pulsação) */
         #mensagem-alegria {
             display: none;
             font-size: 50px;
@@ -157,10 +157,19 @@
 </head>
 <body>
     <div id="site">
+        <!-- Texto principal -->
         <div id="texto-principal">Uma surpresa para Vic!</div>
+        
+        <!-- Mensagem de alegria -->
         <div id="mensagem-alegria">Você é incrível!</div>
+
+        <!-- Corações -->
         <div id="coracoes">❤️❤️❤️</div>
+
+        <!-- Luz -->
         <div id="luz"></div>
+
+        <!-- Frase final -->
         <div id="frase-final">Te amo, Vic! ❤️</div>
     </div>
 
