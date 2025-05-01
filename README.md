@@ -28,8 +28,9 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     h1 {
-      font-size: 24px;
+      font-size: 26px;
       color: #d6336c;
+      margin-top: 80px;
       margin-bottom: 20px;
     }
     p {
@@ -43,7 +44,7 @@
       color: #b20043;
       margin-top: 30px;
     }
-    .buttons {
+    .buttons, .open-btn {
       margin-top: 20px;
     }
     button {
@@ -68,28 +69,47 @@
       color: #c2185b;
       animation: fadeIn 1s ease-in-out;
     }
-    .heart {
-      display: inline-block;
-      color: #ff4d6d;
-      font-size: 40px;
-      animation: pulse 1s infinite;
-      margin-top: 10px;
+    .heart-animated {
+      display: none;
+      width: 80px;
+      height: 80px;
+      margin: 20px auto 0;
+      background: url('https://i.imgur.com/nVNlHFF.gif') no-repeat center center;
+      background-size: contain;
+      animation: bounce 2s infinite, kiss 2s 1, hug 2s infinite;
     }
-    @keyframes pulse {
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes kiss {
       0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.1); }
       100% { transform: scale(1); }
+    }
+    @keyframes hug {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    #main-content {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="1000304699.png" alt="Vic">
+  <div class="container" id="intro">
     <h1>Abre isso com carinho...</h1>
+    <div class="open-btn">
+      <button onclick="openHeart()">Abrir o coração de Gidelson</button>
+    </div>
+  </div>
+
+  <div class="container" id="main-content">
+    <img src="1000304699.png" alt="Vic">
     <p>Vic,</p>
     <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
@@ -98,20 +118,27 @@
     <p>Quero te abraçar forte quando o mundo pesar, quero te lembrar todos os dias o qto vc é linda por dentro e por fora. Quero cuidar de vc como quem cuida de algo raro e precioso — pq é isso q vc é pra mim.</p>
     <p>Quero te fazer sorrir nos dias bons e te segurar firme nos dias difíceis. Quero ouvir suas inseguranças e transformá-las em carinho, te mostrar com gestos e palavras q vc nunca tá sozinha.</p>
     <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração. Inteiro. Sem reservas.</p>
-    <p class="final">Vic, vc aceita namorar comigo?</p>
+    <p class="final">Vic, vc aceita namorar comigo? 💖</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
     </div>
     <div class="response" id="response">
-      Vc acabou de fazer meu coração dançar! <div class="heart">&#10084;</div>
+      Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado. ❤️
+      <div class="heart-animated" id="heart"></div>
     </div>
     <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
   </div>
 
   <script>
+    function openHeart() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }
+
     function showResponse() {
       document.getElementById("response").style.display = "block";
+      document.getElementById("heart").style.display = "block";
     }
   </script>
 </body>
