@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: url('https://drive.google.com/uc?id=1lBFzkzSoFsQam5UHBAOV7H_FnCaxjRtl') no-repeat center center fixed;
+      background: url('https://i.postimg.cc/02yn4XPg/Selfie-no-estilo-unic-rnio.png') no-repeat center center fixed;
       background-size: cover;
       color: #4a2c2a;
       display: flex;
@@ -19,20 +19,37 @@
       text-align: center;
       overflow-x: hidden;
       position: relative;
+      transition: background-color 5s ease-in-out;
     }
 
     .container {
       padding: 30px 20px;
       max-width: 700px;
       animation: fadeIn 1s ease;
-      background: rgba(255, 255, 255, 0.85);
+      background: none;
       border-radius: 16px;
       margin-top: 40px;
+    }
+
+    #main-content {
+      display: none;
+      color: #000000;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes floatHeart {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-300px); opacity: 0; }
     }
 
     h1 {
@@ -41,11 +58,6 @@
       color: #d6336c;
       margin-top: 100px;
       animation: bounce 1.5s infinite alternate;
-    }
-
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-10px); }
     }
 
     p {
@@ -57,11 +69,11 @@
     .final {
       font-weight: bold;
       font-size: 22px;
-      color: #b20043;
+      color: #000000;
       margin-top: 30px;
     }
 
-    .buttons, .open-btn {
+    .buttons {
       margin-top: 30px;
     }
 
@@ -81,42 +93,34 @@
       background-color: #ff77a9;
     }
 
-    #heart-gif {
-      width: 120px;
-      height: auto;
-      margin: 30px auto 0;
-      display: block;
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    #intro, #main-content, #response {
+    #intro, #response, #closing-message {
       display: none;
     }
 
     .message-final {
       font-size: 24px;
-      color: #d6336c;
+      color: #000000;
       font-weight: bold;
       margin-top: 20px;
-      animation: fadeIn 1.5s ease;
+      animation: pulse 1.5s infinite ease-in-out;
     }
 
-    /* Corações flutuantes */
     .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: url('https://i.imgur.com/ZpUj36F.png') no-repeat center;
-      background-size: contain;
-      animation: float 6s linear infinite;
-      pointer-events: none;
+      position: absolute;
+      font-size: 24px;
+      color: red;
+      animation: floatHeart 4s linear infinite;
     }
 
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    #closing-message {
+      font-size: 24px;
+      color: #ffffff;
+      font-weight: bold;
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 3s ease-in-out;
     }
+
   </style>
 </head>
 <body>
@@ -132,11 +136,9 @@
     <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
-    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero dividir os silêncios, os sonhos, os medos e as vitórias.</p>
-    <p>Quero te abraçar forte quando o mundo pesar, quero te lembrar todos os dias o quanto vc é linda por dentro e por fora. Quero cuidar de vc como quem cuida de algo raro e precioso — pq é isso q vc é pra mim.</p>
-    <p>Quero te fazer sorrir nos dias bons e te segurar firme nos dias difíceis. Quero ouvir suas inseguranças e transformá-las em carinho, te mostrar com gestos e palavras q vc nunca tá sozinha.</p>
-    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração. Inteiro. Sem reservas.</p>
-    <p>Pq eu te amo. E é muito.</p>
+    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
+    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
+    
     <p class="final">Vic, vc aceita namorar comigo?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
@@ -145,36 +147,49 @@
   </div>
 
   <div class="container" id="response">
-    <img id="heart-gif" src="https://drive.google.com/uc?id=1lBox6RTL1e59nva547a3-O4S7DZ9Na1N" alt="Coração fofo animado">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.</div>
+    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado. 💖</div>
+  </div>
+
+  <div class="container" id="closing-message">
+    <p>A mágica do pedido chegou ao fim, mas nossa história mágica acaba de começar. ✨💖</p>
   </div>
 
   <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
 
   <script>
-    window.onload = function() {
-      document.getElementById("intro").style.display = "block";
-    }
-
     function openHeart() {
       document.getElementById("intro").style.display = "none";
       document.getElementById("main-content").style.display = "block";
-
-      for (let i = 0; i < 20; i++) {
-        let heart = document.createElement("div");
-        heart.className = "heart";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
-        heart.style.animationDelay = (Math.random() * 3) + "s";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 10000);
-      }
     }
 
     function showResponse() {
       document.getElementById("main-content").style.display = "none";
       document.getElementById("response").style.display = "block";
+      createHearts();
+      setTimeout(showClosingMessage, 5000);
+    }
+
+    function createHearts() {
+      setInterval(() => {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 300);
+    }
+
+    function showClosingMessage() {
+      document.getElementById("closing-message").style.opacity = "1";
+      setTimeout(() => {
+        document.body.style.backgroundColor = "#ffffff";
+      }, 3000);
+      setTimeout(() => {
+        window.close();
+      }, 10000); // Fechar após 10 segundos
     }
   </script>
 </body>
