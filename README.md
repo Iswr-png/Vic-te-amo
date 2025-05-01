@@ -131,7 +131,7 @@
     </div>
   </div>
 
-  <div class="container" id="main-content">
+  <div class="container" id="main-content" style="display:none;">
     <p>Vic,</p>
     <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
