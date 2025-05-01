@@ -22,12 +22,25 @@
       transition: background-color 5s ease-in-out;
     }
 
+    .overlay-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.7);
+      z-index: 1;
+      display: none;
+    }
+
     .container {
       padding: 30px 20px;
       max-width: 700px;
       animation: fadeIn 1s ease;
       border-radius: 16px;
       margin-top: 40px;
+      position: relative;
+      z-index: 2;
     }
 
     #main-content, #response, #closing-message {
@@ -93,7 +106,7 @@
 
     .message-final {
       font-size: 24px;
-      color: #000000;
+      color: #d63384; /* Cor rosa */
       font-weight: bold;
       margin-top: 20px;
       animation: pulse 1.5s infinite ease-in-out;
@@ -103,13 +116,14 @@
       text-align: center;
       min-height: 200px;
       z-index: 11;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombramento */
     }
 
     .heart {
       position: absolute;
       font-size: 24px;
       color: red;
-      animation: floatHeart 4s linear infinite;
+      animation: floatHeart 4s linear forwards;
     }
 
     #closing-message {
@@ -117,8 +131,6 @@
       opacity: 0;
       transition: opacity 3s ease-in-out;
       z-index: 12;
-      position: relative;
-      color: #000000;
     }
 
     #light-overlay {
@@ -127,15 +139,17 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
+      background: white;
       opacity: 0;
       pointer-events: none;
       transition: opacity 5s ease-in-out;
-      z-index: 10;
+      z-index: 20;
     }
   </style>
 </head>
 <body>
+  <div class="overlay-bg" id="text-background"></div>
+
   <div class="container" id="intro">
     <h1>Abre isso com carinho...</h1>
     <div class="open-btn">
@@ -145,7 +159,7 @@
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
+    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonita... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
     <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
@@ -174,46 +188,49 @@
     function openHeart() {
       document.getElementById("intro").style.display = "none";
       document.getElementById("main-content").style.display = "block";
+      document.getElementById("text-background").style.display = "block";
     }
 
     function showResponse() {
       document.getElementById("main-content").style.display = "none";
+      document.getElementById("text-background").style.display = "none";
       document.getElementById("response").style.display = "block";
       createHearts();
-      
+
+      setTimeout(() => {
+        document.getElementById("response").style.display = "none";
+        document.getElementById("closing-message").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("closing-message").style.opacity = "1";
+        }, 300);
+      }, 9000);
+
       setTimeout(() => {
         document.getElementById("light-overlay").style.opacity = "1";
-      }, 7000);
-      
-      setTimeout(showClosingMessage, 15000);
-    }
+      }, 15000);
 
-    function showClosingMessage() {
-      document.getElementById("response").style.display = "none";
-      document.body.style.backgroundColor = "#ffffff";
-      const message = document.getElementById("closing-message");
-      message.style.display = "block";
-      setTimeout(() => {
-        message.style.opacity = "1";
-      }, 500);
       setTimeout(() => {
         window.close();
-      }, 10000);
+      }, 21000);
     }
 
     function createHearts() {
-      const interval = setInterval(() => {
-        let heart = document.createElement("div");
+      const heartInterval = setInterval(() => {
+        const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.top = window.innerHeight + "px";
-        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.textContent = "❤️";
         document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
       }, 300);
 
-      setTimeout(() => clearInterval(interval), 10000);
+      setTimeout(() => {
+        clearInterval(heartInterval);
+      }, 12000);
     }
   </script>
 </body>
