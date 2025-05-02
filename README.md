@@ -12,7 +12,7 @@
       font-family: 'Quicksand', sans-serif;
       background: url('https://i.postimg.cc/02yn4XPg/Selfie-no-estilo-unic-rnio.png') no-repeat center center fixed;
       background-size: cover;
-      color: #000000;
+      color: #000;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -24,10 +24,8 @@
 
     .overlay-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-color: rgba(255,255,255,0.7);
       z-index: 1;
       display: none;
@@ -65,22 +63,21 @@
 
     h1 {
       font-family: 'Pacifico', cursive;
-      font-size: 32px;
+      font-size: 36px;
       color: #d6336c;
       margin-top: 100px;
       animation: bounce 1.5s infinite alternate;
     }
 
     p {
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 20px;
+      line-height: 1.8;
       margin-bottom: 20px;
-      color: #000000;
     }
 
     .final {
       font-weight: bold;
-      font-size: 22px;
+      font-size: 26px;
       margin-top: 30px;
     }
 
@@ -90,8 +87,8 @@
 
     button {
       margin: 10px;
-      padding: 12px 24px;
-      font-size: 16px;
+      padding: 14px 26px;
+      font-size: 18px;
       background-color: #ff99bb;
       border: none;
       border-radius: 10px;
@@ -105,7 +102,7 @@
     }
 
     .message-final {
-      font-size: 24px;
+      font-size: 26px;
       color: #d63384;
       font-weight: bold;
       margin-top: 20px;
@@ -120,13 +117,18 @@
       position: relative;
       opacity: 0;
       transition: opacity 4s ease-in-out;
+      padding: 0 10px;
     }
 
     .heart {
-      position: absolute;
-      font-size: 24px;
+      position: fixed;
+      font-size: 30px;
       color: red;
       animation: floatHeart 4s linear forwards;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      z-index: 3;
     }
 
     #closing-message {
@@ -148,39 +150,16 @@
       z-index: 10;
     }
 
+    #closing-message p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
     @media (max-width: 480px) {
-      body {
-        background-size: contain;
-      }
-
-      .container {
-        width: 100%;
-        padding: 15px 10px;
-      }
-
-      h1 {
-        font-size: 20px;
-        margin-top: 40px;
-      }
-
-      p, .final, .message-final, #closing-message p {
-        font-size: 15px;
-        word-wrap: break-word;
-      }
-
-      .message-final {
-        padding: 0 10px;
-        min-height: 120px;
-      }
-
-      .buttons {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-        font-size: 14px;
-      }
+      h1 { font-size: 26px; }
+      p, .final, .message-final, #closing-message p { font-size: 18px; }
+      button { font-size: 16px; }
+      .heart { font-size: 24px; }
     }
   </style>
 </head>
@@ -210,15 +189,17 @@
   </div>
 
   <div class="container" id="response">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.</div>
+    <div class="message-final">
+      Meu coração tá transbordando de felicidade!<br/>
+      Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.
+    </div>
   </div>
 
   <div class="container" id="closing-message">
-    <p>A mágica do pedido chegou ao fim, mas nossa história mágica acaba de começar. ✨💖</p>
+    <p>A mágica do pedido chegou ao fim,<br/>mas nossa história mágica acaba de começar. ✨💖</p>
   </div>
 
   <div id="light-overlay"></div>
-
   <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/01/05/audio_735dfb77d4.mp3" autoplay loop></audio>
 
   <script>
@@ -256,19 +237,12 @@
       const heartInterval = setInterval(() => {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "100vh";
         heart.textContent = "❤️";
         document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 4000);
+        setTimeout(() => heart.remove(), 4000);
       }, 300);
 
-      setTimeout(() => {
-        clearInterval(heartInterval);
-      }, 12000);
+      setTimeout(() => clearInterval(heartInterval), 12000);
     }
   </script>
 </body>
