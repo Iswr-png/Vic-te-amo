@@ -106,7 +106,7 @@
 
     .message-final {
       font-size: 24px;
-      color: #d63384;
+      color: #d63384; /* Cor rosa */
       font-weight: bold;
       margin-top: 20px;
       animation: pulse 1.5s infinite ease-in-out;
@@ -116,7 +116,7 @@
       text-align: center;
       min-height: 200px;
       z-index: 11;
-      text-shadow: 1px 1px 4px white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombramento */
     }
 
     .heart {
@@ -135,9 +135,10 @@
 
     #light-overlay {
       position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: white;
       opacity: 0;
       pointer-events: none;
@@ -158,7 +159,7 @@
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
+    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonita... mais cheio de sentido.</p>
     <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
     <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
@@ -172,7 +173,7 @@
   </div>
 
   <div class="container" id="response">
-    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.</div>
+    <div class="message-final">Meu coração tá transbordando de felicidade! Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado. 💖</div>
   </div>
 
   <div class="container" id="closing-message">
