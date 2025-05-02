@@ -148,33 +148,37 @@
       z-index: 10;
     }
 
-    /* Responsividade para telas menores */
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
+      body {
+        background-size: contain;
+      }
+
       .container {
-        margin-top: 20px;
-        padding: 20px 15px;
+        width: 100%;
+        padding: 15px 10px;
       }
 
       h1 {
-        font-size: 24px;
-        margin-top: 60px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      .final {
         font-size: 20px;
+        margin-top: 40px;
+      }
+
+      p, .final, .message-final, #closing-message p {
+        font-size: 15px;
+        word-wrap: break-word;
       }
 
       .message-final {
-        font-size: 20px;
-        min-height: 150px;
+        padding: 0 10px;
+        min-height: 120px;
+      }
+
+      .buttons {
+        flex-direction: column;
       }
 
       button {
-        padding: 10px 20px;
+        width: 100%;
         font-size: 14px;
       }
     }
