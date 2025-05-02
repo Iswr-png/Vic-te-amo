@@ -144,8 +144,39 @@
       background: white;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 8s ease-in-out; /* A tela branca agora aparece um pouco mais devagar */
+      transition: opacity 8s ease-in-out;
       z-index: 10;
+    }
+
+    /* Responsividade para telas menores */
+    @media (max-width: 768px) {
+      .container {
+        margin-top: 20px;
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-top: 60px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .final {
+        font-size: 20px;
+      }
+
+      .message-final {
+        font-size: 20px;
+        min-height: 150px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -199,26 +230,22 @@
       document.getElementById("response").style.display = "block";
       createHearts();
 
-      // Esconde a mensagem de felicidade depois de 9 segundos
       setTimeout(() => {
         document.getElementById("response").style.display = "none";
       }, 9000);
 
-      // Começa a transição da luz branca mais devagar (8s)
       setTimeout(() => {
         document.getElementById("light-overlay").style.opacity = "1";
-      }, 5000); // Reduzido de 15s para 5s
+      }, 5000);
 
-      // Exibe a mensagem final um pouco mais tarde
       setTimeout(() => {
         document.getElementById("closing-message").style.display = "block";
         document.getElementById("closing-message").style.opacity = "1";
-      }, 13000); // Aumentado o tempo para a mensagem aparecer mais tarde
+      }, 13000);
 
-      // Fecha a aba depois de tudo
       setTimeout(() => {
         window.close();
-      }, 18000); // A aba será fechada após 18s
+      }, 18000);
     }
 
     function createHearts() {
