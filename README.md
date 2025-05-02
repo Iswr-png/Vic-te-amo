@@ -109,14 +109,17 @@
       color: #d63384;
       font-weight: bold;
       margin-top: 20px;
-      animation: pulse 1.5s infinite ease-in-out;
+      animation: pulse 2s infinite ease-in-out;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       min-height: 200px;
-      z-index: 11;
+      z-index: 12;
       text-shadow: 1px 1px 4px white;
+      position: relative;
+      opacity: 0;
+      transition: opacity 4s ease-in-out;
     }
 
     .heart {
@@ -141,8 +144,8 @@
       background: white;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 5s ease-in-out;
-      z-index: 20;
+      transition: opacity 8s ease-in-out; /* A tela branca agora aparece um pouco mais devagar */
+      z-index: 10;
     }
   </style>
 </head>
@@ -158,8 +161,13 @@
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente...</p>
-    <p>Vic, vc aceita namorar comigo?</p>
+    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
+    <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
+    <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
+    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
+    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
+
+    <p class="final">Vic, vc aceita namorar comigo?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
@@ -191,20 +199,26 @@
       document.getElementById("response").style.display = "block";
       createHearts();
 
+      // Esconde a mensagem de felicidade depois de 9 segundos
+      setTimeout(() => {
+        document.getElementById("response").style.display = "none";
+      }, 9000);
+
+      // Começa a transição da luz branca mais devagar (8s)
       setTimeout(() => {
         document.getElementById("light-overlay").style.opacity = "1";
-      }, 15000);
+      }, 5000); // Reduzido de 15s para 5s
 
-      document.getElementById("light-overlay").addEventListener("transitionend", () => {
+      // Exibe a mensagem final um pouco mais tarde
+      setTimeout(() => {
         document.getElementById("closing-message").style.display = "block";
-        setTimeout(() => {
-          document.getElementById("closing-message").style.opacity = "1";
-        }, 300);
-      });
+        document.getElementById("closing-message").style.opacity = "1";
+      }, 13000); // Aumentado o tempo para a mensagem aparecer mais tarde
 
+      // Fecha a aba depois de tudo
       setTimeout(() => {
         window.close();
-      }, 21000);
+      }, 18000); // A aba será fechada após 18s
     }
 
     function createHearts() {
