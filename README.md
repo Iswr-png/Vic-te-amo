@@ -134,8 +134,6 @@
       font-size: 24px;
       color: red;
       animation: floatHeart 4s linear forwards;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     #closing-message {
@@ -143,6 +141,8 @@
       opacity: 0;
       transition: opacity 3s ease-in-out;
       z-index: 12;
+      text-align: center; /* Centraliza o texto */
+      font-size: 2rem; /* Aumenta o tamanho da fonte */
     }
 
     #light-overlay {
@@ -184,13 +184,13 @@
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde que você chegou, parece que a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
-    <p>Você tem um brilho que é só seu. Uma luz tão única que ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em você.</p>
+    <p>Desde que vc chegou, parece que a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
+    <p>Vc tem um brilho que é só seu. Uma luz tão única que ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
     <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre que foi feito pra te amar.</p>
-    <p>Você é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com você que eu quero compartilhar momentos, os medos e as vitórias.</p>
+    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc que eu quero compartilhar momentos, os medos e as vitórias.</p>
     <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
 
-    <p class="final">Vic, você aceita namorar comigo?</p>
+    <p class="final">Vic, vc aceita namorar comigo?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
@@ -200,7 +200,7 @@
   <div class="container" id="response">
     <div class="message-final">
       <span>Meu coração tá transbordando de felicidade!</span>
-      <span>Esse meu amor por você só me faz querer viver momentos lindos ao seu lado.</span>
+      <span>Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.</span>
     </div>
   </div>
 
@@ -228,27 +228,28 @@
 
       setTimeout(() => {
         document.getElementById("response").style.display = "none";
-      }, 9000);
+      }, 12000); // Aumentado para 12 segundos
 
       setTimeout(() => {
         document.getElementById("light-overlay").style.opacity = "1";
-      }, 5000);
+      }, 8000); // Aumentado para 8 segundos
 
       setTimeout(() => {
         document.getElementById("closing-message").style.display = "block";
         document.getElementById("closing-message").style.opacity = "1";
-      }, 13000);
+      }, 16000); // Aumentado para 16 segundos
 
       setTimeout(() => {
         window.close();
-      }, 18000);
+      }, 24000); // Aumentado para 24 segundos
     }
 
     function createHearts() {
       const heartInterval = setInterval(() => {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.style.top = "100vh";
+        heart.style.left = Math.random() * 100 + "vw"; // Posição aleatória na largura
+        heart.style.top = Math.random() * 100 + "vh"; // Posição aleatória na altura
         heart.textContent = "❤️";
         document.body.appendChild(heart);
 
