@@ -158,13 +158,8 @@
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
-    <p>Vc tem um brilho q é só seu. Uma luz tão única q ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
-    <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre q foi feito pra te amar.</p>
-    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc q eu quero compartilhar momentos, os medos e as vitórias.</p>
-    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
-
-    <p class="final">Vic, vc aceita namorar comigo?</p>
+    <p>Desde q vc chegou, parece q a vida ficou com uma cor diferente...</p>
+    <p>Vic, vc aceita namorar comigo?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
@@ -197,16 +192,15 @@
       createHearts();
 
       setTimeout(() => {
-        document.getElementById("response").style.display = "none";
+        document.getElementById("light-overlay").style.opacity = "1";
+      }, 15000);
+
+      document.getElementById("light-overlay").addEventListener("transitionend", () => {
         document.getElementById("closing-message").style.display = "block";
         setTimeout(() => {
           document.getElementById("closing-message").style.opacity = "1";
         }, 300);
-      }, 9000);
-
-      setTimeout(() => {
-        document.getElementById("light-overlay").style.opacity = "1";
-      }, 15000);
+      });
 
       setTimeout(() => {
         window.close();
