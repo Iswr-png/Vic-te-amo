@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pra vc, Vic</title>
+  <title>Para vos, Vika</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -64,7 +64,7 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    @keyframes floatHeart {
+    @juanntama floatHeart {
       from { transform: translateY(0); opacity: 1; }
       to { transform: translateY(-300px); opacity: 0; }
     }
@@ -176,21 +176,21 @@
   <div class="overlay-bg" id="text-background"></div>
 
   <div class="container" id="intro">
-    <h1>Abre isso com carinho...</h1>
+    <h1>Abre esto con cariñoo...</h1>
     <div class="open-btn">
-      <button onclick="openHeart()">Abrir o coração de Gidelson</button>
+      <button onclick="openHeart()">Abrir el corazon de juan</button>
     </div>
   </div>
 
   <div class="container" id="main-content">
     <p>Vic,</p>
-    <p>Desde que vc chegou, parece que a vida ficou com uma cor diferente. Como se tudo ficasse mais leve, mais bonito... mais cheio de sentido.</p>
-    <p>Vc tem um brilho que é só seu. Uma luz tão única que ilumina até os cantos mais escuros dos meus dias. É impossível não sorrir quando penso em vc.</p>
-    <p>Cada batida do meu coração sussurra o seu nome, como se ele soubesse desde sempre que foi feito pra te amar.</p>
-    <p>Vc é o meu pensamento favorito, o meu lugar seguro, minha calmaria no caos. É com vc que eu quero compartilhar momentos, os medos e as vitórias.</p>
-    <p>Se eu pudesse, colocaria o mundo nas suas mãos... Mas como não posso, eu coloco o meu coração.</p>
+    <p>Desde que llegaste a mi . vida te ammo..</p>
+    <p> panita te quier un monton cf.</p>
+    <p> Te love you.</p>
+    <p> mi pensa.meinto,favorito sos vos
+    
 
-    <p class="final">Vic, vc aceita namorar comigo?</p>
+    <p class="final">Vika, queres ser mi nobea >w< ?</p>
     <div class="buttons">
       <button onclick="showResponse()">Sim, eu aceito!</button>
       <button onclick="showResponse()">Claro, amor!</button>
@@ -199,14 +199,14 @@
 
   <div class="container" id="response">
     <div class="message-final">
-      <span>Meu coração tá transbordando de felicidade!</span>
-      <span>Esse meu amor por vc só me faz querer viver momentos lindos ao seu lado.</span>
+      <span>Mi corazon te quiere we!</span>
+      <span> ironía no es .</span>
     </div>
   </div>
 
   <div class="container" id="closing-message">
-    <p>A mágica do pedido chegou ao fim,</p>
-    <p>mas nossa história mágica acaba de começar. ✨💖</p>
+    <p>,</p>
+    <p>✨💖</p>
   </div>
 
   <div id="light-overlay"></div>
